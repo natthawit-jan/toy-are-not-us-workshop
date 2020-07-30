@@ -1,9 +1,22 @@
 <p>toys-list works!</p>
 <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
-  <select formControlName="age">
+  <select id="age" formControlName="age">
     <option value="">Choose Age</option>
-    <option *ngFor="let age of ages" [ngValue]="age">{{ age }}</option>
+    <option *ngFor="let age of ages" [value]="age">{{ age }}</option>
   </select>
+  <br />
+  <br />
+
+  <select id="gender" formControlName="gender">
+    <option value="">Choose Gender</option>
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+  </select>
+  <br />
+  <br />
+
   <button type="submit">Submit</button>
 </form>
-<h1>You selected age : {{ age }}</h1>
+<h1 *ngIf="age && gender">
+  You selected age is {{ age }} and gender is {{ gender }}
+</h1>

@@ -20,6 +20,10 @@ export class ToysListComponent implements OnInit {
     return this.myForm.get('age').value;
   }
 
+  get gender() {
+    return this.myForm.get('gender').value;
+  }
+
   onSubmit() {
     alert(JSON.stringify(this.myForm.value));
   }
