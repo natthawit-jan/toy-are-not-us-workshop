@@ -20,3 +20,18 @@
 <h1 *ngIf="age && gender">
   You selected age is {{ age }} and gender is {{ gender }}
 </h1>
+<table *ngIf="searchClicked">
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+  </tr>
+  <tr
+    [routerLink]="['/toy-detail/', toy.id]"
+    style="cursor: pointer;"
+    id="15"
+    *ngFor="let toy of toys"
+  >
+    <td>{{ toy.name }}</td>
+    <td>{{ toy.price }}</td>
+  </tr>
+</table>

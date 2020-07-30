@@ -8,6 +8,17 @@ import { FormBuilder } from '@angular/forms';
 export class ToysListComponent implements OnInit {
   myForm: any;
   ages = ['3', '5', '7', '9'];
+  toys = [
+    {
+      id: 15,
+      name: 'sailboat',
+      gender: 'male',
+      age: 9,
+      brand: 'CoolKidz',
+      price: 24.95,
+    },
+  ];
+  searchClicked = false;
 
   constructor(private fb: FormBuilder) {
     this.myForm = this.fb.group({
@@ -25,7 +36,9 @@ export class ToysListComponent implements OnInit {
   }
 
   onSubmit() {
-    alert(JSON.stringify(this.myForm.value));
+    // Simulate the api calling here
+    // alert(JSON.stringify(this.myForm.value));
+    this.searchClicked = true;
   }
 
   ngOnInit(): void {}
