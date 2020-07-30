@@ -22,7 +22,7 @@ ${URL}    http://localhost:4200
 ค้นหาของเล่น ที่อายุ และเพศ
     [Arguments]    ${age}       ${gender}    
     คลิกเลือก dropdown อายุ      ${age}
-    คลิกเลือก dropdown เพศ      ${age}
+    คลิกเลือก dropdown เพศ      ${gender}
     คลิก ค้นหา
     รอจนกระทั่งมีผลลัพธ์ toys ขึ้นมา
     เลือก toy อันแรก
@@ -56,11 +56,11 @@ Go to Toy R not Us Website
 
 คลิกเลือก dropdown อายุ
     [Arguments]    ${age}
-    Select From List By Label    id:age    ${age}
+    Select From List By Value    id:age    ${age}
 
 คลิกเลือก dropdown เพศ
     [Arguments]    ${gender}
-    Select From List By Label    id:gender    ${gender}
+    Select From List By Value    id:gender    ${gender}
 
 คลิก ค้นหา
     Click Element   id:btn_search
