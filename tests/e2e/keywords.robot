@@ -4,24 +4,25 @@ Library    SeleniumLibrary
 
 *** Variables ***
 ${URL}    http://localhost:4200
-${age}    9
-${gender}    male
-${carrier}    kerry
-${name}    Veeraphat Amornsirikul
-${address1}    73 Phet Kasem 32
-${address2}    Phet Kasem rd.
-${city}    Bangkok
-${province}    Phasi Charoen
-${postcode}    10160
-${payment}    kbank_debit
 
 
 *** Keywords ***
 
+เริ่มการค้นหาผ่านเว็บ toy-r-not-us
+    [Arguments]    ${age}   ${gender}   ${carrier}   ${name}  ${address1}  ${address2}    ${city}    ${province}    ${postcode}    ${payment} 
+    ค้นหาของเล่น ที่อายุ และเพศ    ${age}    ${gender}
+    เพิ่มสินค้าเข้าไปในรถเข็น
+    เลือก shipping คลิกไปที่หน้า checkout    ${carrier}
+    กรอก shipping address และ คลิก Deliver to this address   ${name}           ${address1}    	      ${address2}    ${city}    ${province}    ${postcode} 
+    เลือก payment method และ คลิก place order    ${payment}
+    รอจนกระทั่งมีคำว่า Thank you และ เลข order
 
-ค้นหาของเล่น ด้วยอายุ 9 ขวบ เพศชาย และเลือกผลลัพท์อันแรก   
-    คลิกเลือก dropdown อายุ และ เลือกอายุ 9 ขวบ
-    คลิกเลือก dropdown เพศ และ เลือกเพศชาย
+
+
+ค้นหาของเล่น ที่อายุ และเพศ
+    [Arguments]    ${age}       ${gender}    
+    คลิกเลือก dropdown อายุ      ${age}
+    คลิกเลือก dropdown เพศ      ${age}
     คลิก ค้นหา
     รอจนกระทั่งมีผลลัพธ์ toys ขึ้นมา
     เลือก toy อันแรก
@@ -30,15 +31,17 @@ ${payment}    kbank_debit
     รอจนกระทั่งมีหน้าจอ Product Detail ขึ้นมา
     คลิก Add to cart
 
-เลือก shipping เป็น kerry และคลิกไปที่หน้า checkout
+เลือก shipping คลิกไปที่หน้า checkout
+    [Arguments]     ${carrier}
     รอจนขึ้นคำว่า Shopping cart
-    shipping method เป็น kerry
+    เลือก shopping method    ${carrier}
     ตรวจสอบ ความถูกต้อง
     คลิก  Proceed to checkout
 
-กรอก shipping address และ คลิก Deliver to this address
+ กรอก shipping address และ คลิก Deliver to this address
+    [Arguments]      ${name}           ${address1}    	      ${address2}    ${city}    ${province}    ${postcode} 
     รอจนกระทั่งเห็นคำว่า Shipping Address
-    กรอกข้อมูลการจัดสั่ง
+    กรอกข้อมูลการจัดสั่ง  ${name}           ${address1}    	      ${address2}    ${city}    ${province}    ${postcode} 
     คลิก Deliver to this address
 
 เลือก debit Kbank เป็น payment method และ คลิก place order
@@ -51,15 +54,16 @@ Go to Toy R not Us Website
     Open Browser    ${URL}    Chrome
 
 
-คลิกเลือก dropdown อายุ และ เลือกอายุ 9 ขวบ
+คลิกเลือก dropdown อายุ
+    [Arguments]    ${age}
     Select From List By Label    id:age    ${age}
 
-คลิกเลือก dropdown เพศ และ เลือกเพศชาย
+คลิกเลือก dropdown เพศ
+    [Arguments]    ${gender}
     Select From List By Label    id:gender    ${gender}
 
 คลิก ค้นหา
-Click Element 
-    Click Button    id:btn_search
+    Click Element   id:btn_search
 
 รอจนกระทั่งมีผลลัพธ์ toys ขึ้นมา
     Wait Until Page Contains     toys
@@ -76,8 +80,9 @@ Click Element
 รอจนขึ้นคำว่า Shopping cart
     Wait Until Page Contains    Shopping cart
 
-shipping method เป็น kerry 
-   Select Radio Button     name:shipping_method    ${carrier}
+ เลือก shopping method 
+    [Arguments]    ${carrier}
+    Select Radio Button     name:shipping_method    ${carrier}
 
 ตรวจสอบ ความถูกต้อง
    Wait Until Page Contains    Sailboat
@@ -91,6 +96,7 @@ shipping method เป็น kerry
     Wait Until Page Contains    Shipping Address
 
 กรอกข้อมูลการจัดสั่ง
+    [Arguments]         ${name}           ${address1}    	      ${address2}    ${city}    ${province}    ${postcode} 
     Input Text    id:full_name    ${name}
     Input Text    id:address_1    ${address1}
     Input Text    id:address_2    ${address2}
@@ -108,9 +114,9 @@ shipping method เป็น kerry
 
 
 
-เลือก debit Kbank เป็น payment method
+เลือก payment method และ คลิก place order
+    [Arguments]    ${payment} 
     Select Radio Button    name:payment_method    ${payment} 
-
    
 คลิก Place your order 
     Click Element      id:btn_place_order
