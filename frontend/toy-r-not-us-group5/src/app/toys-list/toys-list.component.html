@@ -1,0 +1,9 @@
+<p>toys-list works!</p>
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <select formControlName="age">
+    <option value="">Choose Age</option>
+    <option *ngFor="let age of ages" [ngValue]="age">{{ age }}</option>
+  </select>
+  <button type="submit">Submit</button>
+</form>
+<h1>You selected age : {{ age }}</h1>
