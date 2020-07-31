@@ -45,6 +45,12 @@ export class CartPageComponent implements OnInit {
     return this.quantityForm.get('quantity').value;
   }
 
+  onDelete(id: number) {
+    // add logic at later time
+    this.carts = [];
+    this.itemTotal = 0;
+  }
+
   onChangeCarrier(event) {
     const { value } = event.target;
     this.totalPrice -= this.currentlySelectedCarrierPrice;
