@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { ToysListComponent } from './toys-list/toys-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ToyDetailComponent } from './toy-detail/toy-detail.component';
+import { CartPageComponent } from './cart-page/cart-page.component';
 @NgModule({
   declarations: [
     AppComponent,
     ToysListComponent,
-    ToyDetailComponent
+    ToyDetailComponent,
+    CartPageComponent
   ],
   imports: [
     BrowserModule,
