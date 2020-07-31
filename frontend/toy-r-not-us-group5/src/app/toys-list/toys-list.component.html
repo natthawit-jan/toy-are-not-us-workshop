@@ -25,22 +25,26 @@
   <div class="table-responsive">
     <table class="table">
       <thead>
-    <tr>
-      <th>Name</th>
-      <th>Price</th>
-      <th>Gender</th>
-      <th>Age</th>
-      <th>Brand</th>
-    </tr>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Gender</th>
+          <th>Age</th>
+          <th>Brand</th>
+        </tr>
       </thead>
-    <tr
-      [routerLink]="['/toy-detail/', toy.id]"
-      style="cursor: pointer;"
-      id="15"
-      *ngFor="let toy of toys"
-    >
-      <td>{{ toy.name }}</td>
-      <td>{{ toy.price }}</td>
-    </tr>
-  </table>
+      <tr
+        [routerLink]="['/toy-detail/', toy.id]"
+        style="cursor: pointer;"
+        [id]="toy.id"
+        *ngFor="let toy of toys"
+      >
+        <td>{{ toy.name }}</td>
+        <td>{{ toy.price }}</td>
+        <td>{{ toy.gender }}</td>
+        <td>{{ toy.age }}</td>
+        <td>{{ toy.brand }}</td>
+      </tr>
+    </table>
+  </div>
 </div>
