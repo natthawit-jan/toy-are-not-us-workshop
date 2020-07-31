@@ -76,9 +76,12 @@
       <h4>Grand Total : {{ totalPrice | currency }}</h4>
     </div>
 
-    <button id="btn_proceed_checkout">
-      Process to Checkout
-    </button>
+
+  <button [routerLink]="['/ship']" id="btn_proceed_checkout" type="submit">
+    Process to Checkout
+  </button>
+
+    
   </div>
   <div style="padding-top: 50px;" *ngIf="carts.length === 0">
     <div class="row">
@@ -87,4 +90,5 @@
       </div>
     </div>
   </div>
+
 </div>
