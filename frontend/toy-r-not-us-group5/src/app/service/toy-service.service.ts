@@ -21,4 +21,15 @@ export class ToyServiceService {
     console.log(debug, 'test');
     return [debug];
   }
+
+  getGenValue() {
+    return Math.random()
+      .toString(36)
+      .replace(/[^a-z]+/g, '')
+      .substr(0, 50);
+  }
+
+  getCartWithCurrentMethod(method: string) {
+    return [{ ...this.getCurrentCartItems()[0], currentMethod: method }];
+  }
 }

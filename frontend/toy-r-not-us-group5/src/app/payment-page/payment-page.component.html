@@ -1,1 +1,104 @@
-<p>payment-page works!</p>
+<div class="container">
+  <h4>Payment</h4>
+  <div class="row">
+    <div class="col-6">
+      <div *ngIf="carts.length > 0">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Price (USD)</th>
+              </tr>
+            </thead>
+            <tr *ngFor="let item of carts">
+              <td>{{ item.name }}</td>
+              <td>
+                1
+              </td>
+              <td>{{ item.price }}</td>
+            </tr>
+          </table>
+        </div>
+
+        <form [formGroup]="form" (change)="onChange($event)">
+          <label>
+            <input
+              type="radio"
+              value="creditCard"
+              formControlName="paymentMethod"
+            />
+            <span>Credit Card</span>
+          </label>
+          <div *ngIf="creditSelected">
+            <label>
+              <input
+                type="radio"
+                value="VISA"
+                formControlName="paymentMethod"
+              />
+              <span>VISA</span>
+            </label>
+            <label>
+              <input
+                type="radio"
+                value="Mastercard"
+                formControlName="paymentMethod"
+              />
+              <span>Mastercard</span>
+            </label>
+          </div>
+          <br />
+
+          <label>
+            <input
+              id="debit"
+              type="radio"
+              value="Debit"
+              formControlName="paymentMethod"
+            />
+            <span>Debit</span>
+          </label>
+          <div *ngIf="debitSelected">
+            <label>
+              <input
+                id="kbank"
+                type="radio"
+                value="Kbank"
+                formControlName="paymentMethod"
+              />
+              <span>K Bank</span>
+            </label>
+          </div>
+          <br />
+          <label>
+            <input
+              type="radio"
+              value="linepay"
+              formControlName="paymentMethod"
+            />
+            <span>Line pay</span>
+          </label>
+        </form>
+      </div>
+    </div>
+    <div class="col-6">
+      <div>
+        <h5>item : {{ totalPrice | currency }}</h5>
+        <h5>Shipping price : {{ shipping_price | currency }}</h5>
+        <h5>Grand Total : {{ grandTotal | currency }}</h5>
+      </div>
+    </div>
+  </div>
+
+  <button
+    style="float: right;"
+    [routerLink]="['/thank']"
+    [queryParams]="{ gen: genValue }"
+    id="btn_place_order"
+    type="submit"
+  >
+    Place your order
+  </button>
+</div>

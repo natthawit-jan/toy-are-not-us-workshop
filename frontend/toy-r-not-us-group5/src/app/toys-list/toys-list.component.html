@@ -1,50 +1,51 @@
-<p>toys-list works!</p>
-<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
-  <select id="age" formControlName="age">
-    <option value="">Choose Age</option>
-    <option *ngFor="let age of ages" [value]="age">{{ age }}</option>
-  </select>
-  <br />
-  <br />
+<div class="container pt-5">
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <select id="age" formControlName="age">
+      <option value="">Choose Age</option>
+      <option *ngFor="let age of ages" [value]="age">{{ age }}</option>
+    </select>
+    <br />
+    <br />
 
-  <select id="gender" formControlName="gender">
-    <option value="">Choose Gender</option>
-    <option value="male">Male</option>
-    <option value="female">Female</option>
-  </select>
-  <br />
-  <br />
+    <select id="gender" formControlName="gender">
+      <option value="">Choose Gender</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select>
+    <br />
+    <br />
 
-  <button id="btn_search" type="submit">Submit</button>
-</form>
-<h1 *ngIf="age && gender">
-  You selected age is {{ age }} and gender is {{ gender }}
-</h1>
-<div *ngIf="searchClicked">
-  <h3>Search Result</h3>
-  <div class="table-responsive">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Price</th>
-          <th>Gender</th>
-          <th>Age</th>
-          <th>Brand</th>
+    <button id="btn_search" type="submit">Submit</button>
+  </form>
+  <h6 *ngIf="age && gender">
+    You selected age is {{ age }} and gender is {{ gender }}
+  </h6>
+  <div *ngIf="searchClicked">
+    <h3>Search Result</h3>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Gender</th>
+            <th>Age</th>
+            <th>Brand</th>
+          </tr>
+        </thead>
+        <tr
+          [routerLink]="['/toy-detail/', toy.id]"
+          style="cursor: pointer;"
+          [id]="toy.id"
+          *ngFor="let toy of toys"
+        >
+          <td>{{ toy.name }}</td>
+          <td>{{ toy.price }}</td>
+          <td>{{ toy.gender }}</td>
+          <td>{{ toy.age }}</td>
+          <td>{{ toy.brand }}</td>
         </tr>
-      </thead>
-      <tr
-        [routerLink]="['/toy-detail/', toy.id]"
-        style="cursor: pointer;"
-        [id]="toy.id"
-        *ngFor="let toy of toys"
-      >
-        <td>{{ toy.name }}</td>
-        <td>{{ toy.price }}</td>
-        <td>{{ toy.gender }}</td>
-        <td>{{ toy.age }}</td>
-        <td>{{ toy.brand }}</td>
-      </tr>
-    </table>
+      </table>
+    </div>
   </div>
 </div>

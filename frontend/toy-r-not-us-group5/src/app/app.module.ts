@@ -9,6 +9,7 @@ import { ToyDetailComponent } from './toy-detail/toy-detail.component';
 import { CartPageComponent } from './cart-page/cart-page.component';
 import { ShippingAddressComponent } from './shipping-address/shipping-address.component';
 import { PaymentPageComponent } from './payment-page/payment-page.component';
+import { ThankPageComponent } from './thank-page/thank-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,6 +18,7 @@ import { PaymentPageComponent } from './payment-page/payment-page.component';
     CartPageComponent,
     ShippingAddressComponent,
     PaymentPageComponent,
+    ThankPageComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
   providers: [],

@@ -1,23 +1,25 @@
-<h3>Product Detail</h3>
-<h1>Toy name {{ toy.name }}</h1>
-<h4>Brand: {{ toy.brand }}</h4>
-<h4>Gender: {{ toy.gender }}</h4>
-<h4>Age: {{ toy.age }}</h4>
-<h4>Price: {{ toy.price }}</h4>
-<h4>In Stock/Out of Stock: {{ toy.avaliable }}</h4>
-<br />
-<br />
-
-<form [formGroup]="quantityForm">
-  <select formControlName="quantity" id="quantity">
-    <option value=""> choose quantity </option>
-    <option value="1" class="v"> 1 </option>
-  </select>
-
+<div class="container">
+  <h3>Product Detail</h3>
+  <h1>Toy name {{ toy.name }}</h1>
+  <h4>Brand: {{ toy.brand }}</h4>
+  <h4>Gender: {{ toy.gender }}</h4>
+  <h4>Age: {{ toy.age }}</h4>
+  <h4>Price: {{ toy.price }}</h4>
+  <h4>In Stock/Out of Stock: {{ toy.avaliable }}</h4>
   <br />
   <br />
-  <button [routerLink]="['/cart']" id="btn_add" type="submit">
-    Add to cart
-  </button>
-</form>
-<br />
+
+  <form [formGroup]="quantityForm">
+    <select formControlName="quantity" id="quantity">
+      <option value=""> choose quantity </option>
+      <option value="1" class="v"> 1 </option>
+    </select>
+
+    <br />
+    <br />
+    <button [routerLink]="['/cart']" id="btn_add" type="submit">
+      Add to cart
+    </button>
+  </form>
+  <br />
+</div>

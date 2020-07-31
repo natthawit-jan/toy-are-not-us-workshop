@@ -6,6 +6,7 @@ import { CartPageComponent } from './cart-page/cart-page.component';
 import { ShippingAddressComponent } from './shipping-address/shipping-address.component';
 import { from } from 'rxjs';
 import { PaymentPageComponent } from './payment-page/payment-page.component';
+import { ThankPageComponent } from './thank-page/thank-page.component';
 
 const routes: Routes = [
   { path: '', component: ToysListComponent },
@@ -24,6 +25,11 @@ const routes: Routes = [
   {
     path: 'payment',
     component: PaymentPageComponent,
+  },
+
+  {
+    path: 'thank',
+    component: ThankPageComponent,
   },
 ];
 
