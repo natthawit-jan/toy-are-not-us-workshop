@@ -22,11 +22,17 @@
 </h1>
 <div *ngIf="searchClicked">
   <h3>Search Result</h3>
-  <table>
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
     <tr>
       <th>Name</th>
       <th>Price</th>
+      <th>Gender</th>
+      <th>Age</th>
+      <th>Brand</th>
     </tr>
+      </thead>
     <tr
       [routerLink]="['/toy-detail/', toy.id]"
       style="cursor: pointer;"
