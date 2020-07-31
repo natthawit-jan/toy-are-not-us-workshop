@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { ToyServiceService } from '../service/toy-service.service';
 
 @Component({
   selector: 'app-toy-detail',
@@ -7,22 +8,16 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./toy-detail.component.css'],
 })
 export class ToyDetailComponent implements OnInit {
-  toy = {
-    id: 15,
-    name: 'sailboat',
-    gender: 'male',
-    age: 9,
-    brand: 'CoolKidz',
-    price: 24.95,
-    avaliable: true,
-  };
+  toy: any;
   quantityForm: any;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private toyService: ToyServiceService) {}
+
+  ngOnInit(): void {
+    this.toy = this.toyService.getToyAt(15);
+
     this.quantityForm = this.fb.group({
       quantity: [''],
     });
   }
-
-  ngOnInit(): void {}
 }

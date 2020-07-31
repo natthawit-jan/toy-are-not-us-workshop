@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { ToyServiceService } from '../service/toy-service.service';
 @Component({
   selector: 'app-toys-list',
   templateUrl: './toys-list.component.html',
@@ -8,23 +9,15 @@ import { FormBuilder } from '@angular/forms';
 export class ToysListComponent implements OnInit {
   myForm: any;
   ages = ['3', '5', '7', '9'];
-  toys = [
-    {
-      id: 15,
-      name: 'sailboat',
-      gender: 'male',
-      age: 9,
-      brand: 'CoolKidz',
-      price: 24.95,
-    },
-  ];
   searchClicked = false;
+  toys: any;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private toyService: ToyServiceService) {
     this.myForm = this.fb.group({
       age: [''],
       gender: [''],
     });
+    this.toys = toyService.getToys();
   }
 
   get age() {
