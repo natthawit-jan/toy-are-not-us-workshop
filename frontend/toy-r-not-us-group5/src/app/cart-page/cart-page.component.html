@@ -73,7 +73,7 @@
     <h4>Grand Total : {{ totalPrice | currency }}</h4>
   </div>
 
-  <button id="btn_proceed_checkout">
+  <button [routerLink]="['/ship']" id="btn_proceed_checkout" type="submit">
     Process to Checkout
   </button>
 </div>
