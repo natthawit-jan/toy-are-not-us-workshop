@@ -60,13 +60,13 @@
             />
             <span>Debit</span>
           </label>
-          <div *ngIf="debitSelected">
+          <div>
             <label>
               <input
                 id="kbank"
+                name="payment_method"
                 type="radio"
-                value="Kbank"
-                formControlName="paymentMethod"
+                value="kbank_debit"
               />
               <span>K Bank</span>
             </label>
