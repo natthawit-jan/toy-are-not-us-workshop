@@ -36,9 +36,9 @@ ${URL}    http://localhost:4200
     รอจนขึ้นคำว่า Shopping cart
     เลือก shopping method    ${carrier}
     ตรวจสอบ ความถูกต้อง
-    คลิก  Proceed to checkout
+    คลิก Proceed to checkout
 
- กรอก shipping address และ คลิก Deliver to this address
+กรอก shipping address และ คลิก Deliver to this address
     [Arguments]      ${name}           ${address1}    	      ${address2}    ${city}    ${province}    ${postcode} 
     รอจนกระทั่งเห็นคำว่า Shipping Address
     กรอกข้อมูลการจัดสั่ง  ${name}           ${address1}    	      ${address2}    ${city}    ${province}    ${postcode} 
@@ -82,14 +82,14 @@ Go to Toy R not Us Website
 
  เลือก shopping method 
     [Arguments]    ${carrier}
-    Select Radio Button     name:shipping_method    ${carrier}
+    Select Radio Button     carrier    ${carrier}
 
 ตรวจสอบ ความถูกต้อง
-   Wait Until Page Contains    Sailboat
+   Wait Until Page Contains    sailboat
    Wait Until Page Contains    $24.95
-   Wait Until Page Contains    CoolKidz
+   
 
-คลิก  Proceed to checkout
+คลิก Proceed to checkout
    Click Element    id:btn_proceed_checkout
 
 รอจนกระทั่งเห็นคำว่า Shipping Address
@@ -116,7 +116,9 @@ Go to Toy R not Us Website
 
 เลือก payment method และ คลิก place order
     [Arguments]    ${payment} 
-    Select Radio Button    name:payment_method    ${payment} 
+    Select Radio Button    payment_method    ${payment}
+    คลิก Place your order 
+     
    
 คลิก Place your order 
     Click Element      id:btn_place_order
