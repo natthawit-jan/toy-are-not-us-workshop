@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ToyrnotusApplication {
+public class ToyRNoyUsApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ToyrnotusApplication.class, args);
+        SpringApplication.run(ToyRNoyUsApplication.class, args);
     }
 
 }
